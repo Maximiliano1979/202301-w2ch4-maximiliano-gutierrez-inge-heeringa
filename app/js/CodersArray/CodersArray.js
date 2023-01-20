@@ -14,13 +14,23 @@ class CodersArray {
   }
 
   some(callback) {
-    for (let i = 0; i < this.length; i++) {
-      if (callback(this[i])) {
+    for (let position = 0; position < this.length; position++) {
+      if (callback(this[position])) {
         return true;
       }
     }
 
     return false;
+  }
+
+  find(callback) {
+    for (let position = 0; position < this.length; position++) {
+      if (callback(this[position])) {
+        return this[position];
+      }
+    }
+
+    return undefined;
   }
 }
 
