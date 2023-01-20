@@ -1,12 +1,36 @@
 class CodersArray {
+  length = 0;
+
   constructor(...elements) {
-    let index = 0;
     for (const element of elements) {
-      this[index] = element;
-      index++;
+      this[this.length] = element;
+      this.length++;
+    }
+  }
+
+  push(element) {
+    this[this.length] = element;
+    this.length++;
+  }
+
+  some(callback) {
+    for (let position = 0; position < this.length; position++) {
+      if (callback(this[position])) {
+        return true;
+      }
     }
 
-    this.length = index;
+    return false;
+  }
+
+  find(callback) {
+    for (let position = 0; position < this.length; position++) {
+      if (callback(this[position])) {
+        return this[position];
+      }
+    }
+
+    return undefined;
   }
 }
 
